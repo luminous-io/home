@@ -1,7 +1,10 @@
 # Luminous!
+More info coming soon!
+
 
 ## Running the site
 1. Run ``npm install``
+2. Run ``grunt web``
 
 ## Grunt tasks
 
