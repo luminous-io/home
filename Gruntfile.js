@@ -36,6 +36,18 @@ module.exports = function(grunt) {
             files: ['Gruntfile.js', 'src/**/*.js', 'test/**/*.js'],
         },
 
+        // Compile sass into css
+        sass: {
+            dist: {
+                options: {
+                    style: 'expanded'
+                },
+                files: {
+                    'dist/main.css': ['src/**/*.scss']
+                }
+            }
+        },
+
         // Uglifies!
         uglify: {
             options: {
@@ -50,12 +62,13 @@ module.exports = function(grunt) {
 
         // Monitors changes to files
         watch: {
-            files: ['<%= jshint.files %>'],
+            files: ['<%= jshint.files %>', 'src/**/*.scss'],
             tasks: ['build']
         }
     });
 
     // Load plugins
+    grunt.loadNpmTasks('grunt-sass');
     grunt.loadNpmTasks('grunt-contrib-concat');
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-contrib-jshint');
@@ -66,7 +79,7 @@ module.exports = function(grunt) {
     grunt.registerTask('default', ['jshint']);
 
     // Other tasks.
-    grunt.registerTask('build', ['jshint', 'concat', 'uglify']);
+    grunt.registerTask('build', ['jshint', 'sass', 'concat', 'uglify']);
     grunt.registerTask('web', [
         'build',
         'connect:server',
