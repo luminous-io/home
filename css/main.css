@@ -1,0 +1,35 @@
+
+section.module.parallax {
+  padding: 150px 0;
+  background-position: 50% 0;
+  background-size: auto 100%;
+}
+section.module.parallax-1 {
+  background-image: url("../src/assets/img/test1.png");
+}
+section.module.parallax-2 {
+  background-image: url("../src/assets/img/test2.png");
+}
+section.module.parallax-3 {
+  background-image: url("../src/assets/img/test3.png");
+}
+
+@media all and (min-width: 600px) {
+  section.module h2 {
+    font-size: 42px;
+  }
+  section.module p {
+    font-size: 20px;
+  }
+  section.module.parallax {
+    padding: 300px 0;
+  }
+  section.module.parallax h1 {
+    font-size: 96px;
+  }
+}
+@media all and (min-width: 960px) {
+  section.module.parallax h1 {
+    font-size: 160px;
+  }
+}
